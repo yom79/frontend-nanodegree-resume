@@ -1,14 +1,6 @@
 body,
-div,
-ul,
-li,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+div
+ {
   padding: 0;
   margin: 0;
   font-family: "Roboto", sans-serif;
@@ -24,9 +16,15 @@ h6 {
   padding: 0 5%;
 }
 
+ul {
+    padding: 0 8%;
+    margin: 0;
+}
+
+
 h1 {
   font-size: 40px;
-  color: #f5a623;
+  color: #FFB6C1;
   line-height: 48px;
   display: inline;
 }
@@ -36,7 +34,7 @@ h2 {
   font-size: 24px;
   color: #999;
   line-height: 29px;
-  padding: 10px;
+  margin: 0;
 }
 
 h3 {
@@ -53,14 +51,27 @@ h4 {
   line-height: 17px;
 }
 
+#skills-h3 {
+  color:  #FFB6C1;
+  /*display: none;*/
+  margin-bottom: 0;
+}
+
+/*
 h2,
 h3,
 h4,
 h5 {
-  padding: 10px 5%;
-
+  /*padding: 10px 5%;*/
+  /*modified as follows*//*
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
+*/
 
+.section-title {
+  padding: 15px 10px 0;
+}
 
 .date-text {
   font-style: italic;
@@ -79,16 +90,18 @@ h5 {
 
 }
 
-p {
+p, span {
   font-size: 14px;
   color: #333;
   line-height: 21px;
+  margin: 0;
 }
 
 a {
-  color: #1199c3;
+  /*color: #1199c3;*/
   text-decoration: none;
-  margin-top: 10px;
+  font-size: 14px;
+  /*margin-top: 10px;*/
   display: block;
 }
 
@@ -97,24 +110,33 @@ a {
   font-size: 18px;
   color: #f3f3f3;
   line-height: 28px;
+  padding: 10px;
+  margin: 0;
 }
 
-#skills-h3 {
-  color: #f5ae23;
-  display: none;
-}
-
+/*
 .orange {
   background-color: #f5ae23;
 }
-
-.orange-text {
-  color: #f5ae23;
-}
-
+*/
 .white-text {
   font-weight: bold;
   color: #fff;
+}
+
+/*added for awards*/
+.blue-text {
+  font-size: 16px;
+  color: #1199c3;
+  margin-top: 10px;
+}
+
+.gray-text {
+  color: #999;
+}
+
+.pink-text {
+  color: #FFB6C1;
 }
 
 .gray {
@@ -132,6 +154,7 @@ a {
   background-color: #484848;
 }
 
+
 .flex-box {
   display: -webkit-flex;
   display: flex;
@@ -148,13 +171,14 @@ a {
   padding: 10px;
 }
 
+.flex-item {
+  list-style-type: none;
+}
+
 .center-content {
   padding: 2.5% 5%;
 }
 
-ul {
-  list-style-type: none;
-}
 
 .biopic {
   float: left;
@@ -173,6 +197,10 @@ span {
 
 #lets-connect {
   text-align: center;
+}
+
+#lets-connect h2 {
+  padding-top: 10px;
 }
 
 /* Media queries to handle various device widths */

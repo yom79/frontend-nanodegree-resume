@@ -13,15 +13,15 @@ These are HTML strings. As part of the course, you'll be using JavaScript functi
 replace the %data% placeholder text you see in them.
 */
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var HTMLheaderRole = '<span>%data%</span><hr>';
+var HTMLheaderRole = '<h2 class="white-text">%data%</h2><hr>';
 
-var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
-var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><span class="white-text">%data%</span></li>';
-var HTMLtwitter = '<li class="flex-item"><span class="orange-text">twitter</span><span class="white-text">%data%</span></li>';
-var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><span class="white-text">%data%</span></li>';
-var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
+var HTMLcontactGeneric = '<li class="flex-item"><span class="pink-text">%contact%</span><span class="white-text">%data%</span></li>';
+var HTMLmobile = '<li class="flex-item"><span class="pink-text">mobile</span><span class="white-text">%data%</span></li>';
+var HTMLemail = '<li class="flex-item"><span class="pink-text">email</span><span class="white-text">%data%</span></li>';
+var HTMLtwitter = '<li class="flex-item"><span class="pink-text">twitter</span><span class="white-text">%data%</span></li>';
+var HTMLgithub = '<li class="flex-item"><span class="pink-text">github</span><span class="white-text">%data%</span></li>';
+var HTMLblog = '<li class="flex-item"><span class="pink-text">blog</span><span class="white-text">%data%</span></li>';
+var HTMLlocation = '<li class="flex-item"><span class="pink-text">location</span><span class="white-text">%data%</span></li>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
@@ -30,30 +30,52 @@ var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a href="#">%data%';
-var HTMLworkTitle = ' - %data%</a>';
+
+/*Replaced all <a> elements below that are not functioning as anchor links with <p> and blue text>*/
+// var HTMLworkEmployer = '<a href="#">%data%';
+var HTMLworkEmployer = '<p class="blue-text">%data%';
+// var HTMLworkTitle = ' - %data%</a>';
+var HTMLworkTitle = ' - %data%</p>';
+
 var HTMLworkDates = '<div class="date-text">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
 var HTMLworkDescription = '<p><br>%data%</p>';
 
 var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<a href="#">%data%</a>';
+
+// var HTMLprojectTitle = '<a href="#">%data%</a>';
+var HTMLprojectTitle = '<p class="blue-text">%data%</p>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
 var HTMLprojectImage = '<img src="%data%">';
 
+/*added awards section*/
+var HTMLawardStart = '<ul class="award-entry"></ul>';
+var HTMLawards = '<li class="blue-text">%data%</li>';
+
 var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a href="#">%data%';
-var HTMLschoolDegree = ' -- %data%</a>';
+// var HTMLschoolName = '<a href="#">%data%';
+// var HTMLschoolDegree = ' -- %data%</a>';
+var HTMLschoolName = '<p class="blue-text">%data%';
+var HTMLschoolDegree = ' -- %data%</p>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
-var HTMLschoolMajor = '<em><br>Major: %data%</em>';
+
+/*Modified as emphasizing majors looked strange*/
+// var HTMLschoolMajor = '<em><br>Major: %data%</em>';
+var HTMLschoolMajor = '<p><br>Major: %data%</p>';
 
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
-var HTMLonlineTitle = '<a href="#">%data%';
-var HTMLonlineSchool = ' - %data%</a>';
+// var HTMLonlineTitle = '<a href="#">%data%';
+// var HTMLonlineSchool = ' - %data%</a>';
+var HTMLonlineTitle = '<p class="blue-text">%data%';
+var HTMLonlineSchool = ' - %data%</p>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="#">%data%</a>';
+/*modified to have course URLs function as links*/
+// var HTMLonlineURL = '<br><a href="#">%data%</a>';
+// var HTMLonlineURL = '<br><p>%data%</p>';
+var HTMLonlineURL1 = '<br><a href="%data%';
+var HTMLonlineURL2 = '">%data%</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
@@ -133,6 +155,7 @@ function initializeMap() {
     // the locations array. Note that forEach is used for array iteration
     // as described in the Udacity FEND Style Guide:
     // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
+
     education.schools.forEach(function(school){
       locations.push(school.location);
     });
@@ -141,6 +164,7 @@ function initializeMap() {
     // the locations array. Note that forEach is used for array iteration
     // as described in the Udacity FEND Style Guide:
     // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
+
     work.jobs.forEach(function(job){
       locations.push(job.location);
     });
@@ -239,11 +263,11 @@ Uncomment the code below when you're ready to implement a Google Map!
 */
 
 // Calls the initializeMap() function when the page loads
-//window.addEventListener('load', initializeMap);
+window.addEventListener('load', initializeMap);
 
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
-//window.addEventListener('resize', function(e) {
+window.addEventListener('resize', function(e) {
   //Make sure the map bounds get updated on page resize
-//  map.fitBounds(mapBounds);
-//});
+  map.fitBounds(mapBounds);
+});
