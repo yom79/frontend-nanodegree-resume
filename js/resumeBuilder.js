@@ -11,9 +11,9 @@ This is empty on purpose! Your code to build the resume will go here.
      "twitter": "@annehathaway",
      "location": "Brooklyn, NY"
    },
-   "welcome-message": "Welcome to My Page!",
+   "welcomeMessage": "Welcome to My Page!",
    "skills": ["acting", "singing", "rapping", "babysitting"],
-   "bioPic": "images/biopic1.jpg",
+   "biopic": "images/biopic1.jpg",
    "display": function () {
 
       var formattedName = HTMLheaderName.replace("%data%", bio.name);
@@ -40,10 +40,10 @@ This is empty on purpose! Your code to build the resume will go here.
         $(placement).append(formattedLocation);
       }
 
-      var formattedBiopic = HTMLbioPic.replace("%data%", bio.bioPic);
+      var formattedBiopic = HTMLbioPic.replace("%data%", bio.biopic);
       $("#header").append(formattedBiopic);
 
-      var formattedMessage = HTMLwelcomeMsg.replace("%data%", bio["welcome-message"]);
+      var formattedMessage = HTMLwelcomeMsg.replace("%data%", bio["welcomeMessage"]);
       $("#header").append(formattedMessage);
 
       $("#header").append(HTMLskillsStart);
@@ -53,9 +53,6 @@ This is empty on purpose! Your code to build the resume will go here.
       }
    }
  };
-
-bio.display();
-
 
  var work = {
    "jobs": [
@@ -99,86 +96,84 @@ bio.display();
    }
  };
 
-work.display();
-
   var projects = {
-    "films": [
+    "projects": [
      {
      "title": "Princess Diaries",
      "role": "Mia Thermopolis",
      "dates": "2001",
      "description": "Directed by Garry Marshall",
-     "images": "images/princessdiaries.jpg"
+     "images": ["images/princessdiaries.jpg"]
      },
      {
      "title": "Brokeback Mountain",
      "role": "Lureen Newsome Twist",
      "dates": "2005",
      "description": "Directed by Ang Lee",
-     "images": "images/brokebackmountain.jpg"
+     "images": ["images/brokebackmountain.jpg"]
      },
      {
      "title": "The Devil Wears Prada",
      "role": "Andrea (Andy) Sachs",
      "dates": "2006",
      "description": "Directed by David Frankel",
-     "images": "images/devilwearsprada.jpg"
+     "images": ["images/devilwearsprada.jpg"]
      },
      {
      "title": "Rachel Getting Married",
      "role": "Kym Buchman",
      "dates": "2008",
      "description": "Directed by Jonathan Demme",
-     "images": "images/rachelgettingmarried.jpg"
+     "images": ["images/rachelgettingmarried.jpg"]
      },
      {
      "title": "Alice in Wonderland",
      "role": "Mirana of Marmoreal (The White Queen)",
      "dates": "2010",
      "description": "Directed by Tim Burton",
-     "images": "images/aliceinwonderland.jpg"
+     "images": ["images/aliceinwonderland.jpg"]
      },
      {
      "title": "The Dark Knight Rises",
      "role": "Selina Kyle (Catwoman)",
      "dates": "2012",
      "description": "Directed by Christopher Nolan",
-     "images": "images/darkknightrises.jpg"
+     "images": ["images/darkknightrises.jpg"]
      },
      {
      "title": "Les Miserables",
      "role": "Fantine",
      "dates": "2012",
      "description": "Directed by Tom Hooper",
-     "images": "images/lesmiserables.jpg"
+     "images": ["images/lesmiserables.jpg"]
      },
      {
      "title": "The Intern",
      "role": "Jules Ostin",
      "dates": "2015",
      "description": "Directed by Nancy Meyers",
-     "images": "images/theintern.jpg"
+     "images": ["images/theintern.jpg"]
    }
  ],
    "display": function () {
-     for (film of projects.films) {
+     for (project of projects.projects) {
        $("#projectDetails").append(HTMLprojectStart);
 
-       var formattedProjectTitle = HTMLprojectTitle.replace("%data%", film.title);
-       var formattedProjectDates = HTMLprojectDates.replace("%data%", film.dates);
-       var formattedProjectDescription = HTMLprojectDescription.replace("%data%", film.description);
-       var formattedProjectImage = HTMLprojectImage.replace("%data%", film.images);
+       var formattedProjectTitle = HTMLprojectTitle.replace("%data%", project.title);
+       var formattedProjectDates = HTMLprojectDates.replace("%data%", project.dates);
+       var formattedProjectDescription = HTMLprojectDescription.replace("%data%", project.description);
 
        $(".project-entry:last").append(formattedProjectTitle);
        $(".project-entry:last").append(formattedProjectDates);
        $(".project-entry:last").append(formattedProjectDescription);
-       $(".project-entry:last").append(formattedProjectImage);
+
+       for (let image of project.images) {
+         var formattedProjectImage = HTMLprojectImage.replace("%data%", image);
+         $(".project-entry:last").append(formattedProjectImage);
+       }
      }
    }
  };
-
-projects.display();
-
 
  var awards = {
    "awards": [
@@ -198,25 +193,23 @@ projects.display();
    }
 };
 
-awards.display();
-
  var education = {
    "schools": [
      {
        "name": "Millburn High School",
        "location": "Millburn, New Jersey",
        "degree": "Diploma",
-       "majors": "N/A",
+       "majors": ["N/A"],
        "dates": "1996-2000",
-       "URL": "http://www.edline.net/pages/Millburn_HS"
+       "url": "http://www.edline.net/pages/Millburn_HS"
      },
      {
        "name": "Vassar College",
        "location": "Poughkeepsie, New York",
        "degree": "None",
-       "majors":["English", "Women's Studies"],
+       "majors":["English", " Women's Studies"],
        "dates": "2000-2004",
-       "URL": "https://www.vassar.edu/"
+       "url": "https://www.vassar.edu/"
      },
      {
        "name": "New York University",
@@ -224,21 +217,21 @@ awards.display();
        "degree": "None",
        "majors":["Theatre"],
        "dates": "2005-Unknown",
-       "URL": "https://gallatin.nyu.edu/"
+       "url": "https://gallatin.nyu.edu/"
      }
    ],
    "onlineCourses": [
      {
      "title": "Character Design: Creating Princess Characters",
-     "school": "Taught By A Pro (Online)",
+     "description": "Taught By A Pro (Online)",
      "dates": "2000",
-     "URL": "http://taughtbyapro.com/"
+     "url": "http://taughtbyapro.com/"
     },
     {
       "title": "Much Ado About Nothing in Performance",
-      "school": "Shakespeare Birthplace Trust",
+      "description": "Shakespeare Birthplace Trust",
       "dates": "2003",
-      "URL": "https://www.shakespeare.org.uk/explore-shakespeare/moocs/"
+      "url": "https://www.shakespeare.org.uk/explore-shakespeare/moocs/"
     }
   ],
   "display": function () {
@@ -262,11 +255,11 @@ awards.display();
 
     for (course of education.onlineCourses) {
       var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", course.title);
-      var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", course.school);
+      var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", course.description);
       var formattedOnlineTitleSchool = formattedOnlineTitle + formattedOnlineSchool;
       var formattedOnlineDates = HTMLonlineDates.replace("%data%", course.dates);
-      var formattedOnlineURL1 = HTMLonlineURL1.replace("%data%", course.URL);
-      var formattedOnlineURL2 = HTMLonlineURL2.replace("%data%", course.URL);
+      var formattedOnlineURL1 = HTMLonlineURL1.replace("%data%", course.url);
+      var formattedOnlineURL2 = HTMLonlineURL2.replace("%data%", course.url);
       var formattedOnlineURL = formattedOnlineURL1+formattedOnlineURL2;
 
       $(".education-entry:last").append(formattedOnlineTitleSchool);
@@ -276,7 +269,13 @@ awards.display();
   }
 };
 
+
+bio.display();
+work.display();
+projects.display();
+awards.display();
 education.display();
+
 
 /*add google map*/
 $("#mapDiv").append(googleMap);
