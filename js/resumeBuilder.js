@@ -223,13 +223,13 @@ This is empty on purpose! Your code to build the resume will go here.
    "onlineCourses": [
      {
      "title": "Character Design: Creating Princess Characters",
-     "description": "Taught By A Pro (Online)",
+     "school": "Taught By A Pro (Online)",
      "dates": "2000",
      "url": "http://taughtbyapro.com/"
     },
     {
       "title": "Much Ado About Nothing in Performance",
-      "description": "Shakespeare Birthplace Trust",
+      "school": "Shakespeare Birthplace Trust",
       "dates": "2003",
       "url": "https://www.shakespeare.org.uk/explore-shakespeare/moocs/"
     }
